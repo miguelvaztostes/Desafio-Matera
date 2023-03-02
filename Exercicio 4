@@ -1,0 +1,36 @@
+Para responder a essa pergunta, podemos começar calculando o tempo que cada veículo levará para chegar ao ponto de encontro.
+
+Vamos chamar de d a distância entre Ribeirão Preto e o ponto de encontro. Como a distância entre Ribeirão Preto e Franca é de 100 km, temos que d = 50 km (pois eles estão se encontrando no meio do caminho).
+
+O tempo que o carro levará para percorrer a distância d é dado pela fórmula:
+
+tempo = distância / velocidade
+
+Substituindo os valores, temos:
+
+tempo do carro = d / velocidade do carro
+tempo do carro = 50 km / 110 km/h
+tempo do carro = 0,4545 h
+
+O caminhão levará um pouco mais de tempo devido aos pedágios, mas essa diferença não é significativa para este problema. Portanto, podemos assumir que o caminhão levará o mesmo tempo que o carro para chegar ao ponto de encontro.
+
+Agora, para descobrir qual veículo estará mais próximo de Ribeirão Preto, precisamos analisar a distância que cada um deles percorreu. O carro percorreu 50 km, enquanto o caminhão percorreu 50 km + 2 x (5/60) km (ou seja, 50 km mais a distância adicional que ele percorreu pelos pedágios).
+
+Essa distância adicional é de:
+
+distância adicional = tempo x velocidade
+distância adicional = 5/60 h x 80 km/h
+distância adicional = 0,6667 km
+
+Portanto, a distância total percorrida pelo caminhão é de:
+
+distância total do caminhão = 50 km + 0,6667 km
+distância total do caminhão = 50,6667 km
+
+Como o ponto de encontro está exatamente no meio do caminho, podemos calcular a distância do ponto de encontro até Ribeirão Preto como:
+
+distância do ponto de encontro a Ribeirão Preto = 50 km - distância percorrida pelo carro
+distância do ponto de encontro a Ribeirão Preto = 50 km - 50 km
+distância do ponto de encontro a Ribeirão Preto = 0 km
+
+Portanto, o ponto de encontro está exatamente em Ribeirão Preto. E como o caminhão percorreu uma distância total um pouco maior do que o carro, concluímos que o caminhão estará mais próximo de Ribeirão Preto no momento do cruzamento.
