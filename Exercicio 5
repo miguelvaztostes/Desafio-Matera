@@ -1,0 +1,3 @@
+O erro ORA 0001 é retornado quando uma restrição de chave primária é violada. Nesse caso, a mensagem indica que a restrição exclusiva PK_CARRO foi violada.
+Isso significa que já existe um registro na tabela de carros com o mesmo valor da chave primária (campo "cod_carro") que foi tentado ser inserido novamente pelo comando "insert".
+É preciso escolher outro valor para o campo "cod_carro" ou excluir o registro existente antes de realizar a inserção.
