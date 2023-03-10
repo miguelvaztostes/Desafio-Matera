@@ -1,0 +1,12 @@
+UPDATE CARRO
+SET COD_CONTROLE_REVISAO = 
+    CASE
+        WHEN KM_RODADOS > 150000 THEN 1
+        WHEN KM_RODADOS > 80000 THEN 2
+        WHEN KM_RODADOS > 50000 THEN 3
+        ELSE 4
+    END;
+
+
+Essa declaração atualiza o campo COD_CONTROLE_REVISAO da tabela CARRO com o código correspondente ao status de revisão de cada veículo,
+de acordo com as regras estabelecidas.
