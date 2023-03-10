@@ -1,0 +1,28 @@
+CREATE OR REPLACE PROCEDURE insererevisao(cod_revisao NUMBER) -- Criação do procedimento armazenado insererevisao que recebe um parâmetro chamado cod_revisao
+AS
+  CURSOR km IS -- Declaração do cursor km
+    SELECT ROWID FROM tipo_registro; -- Seleciona o ROWID da tabela tipo_registro
+  vregistro tipo_registro%ROWTYPE; -- Declaração de uma variável vregistro do tipo tipo_registro
+BEGIN
+  OPEN km; -- Abre o cursor km
+  LOOP
+    FETCH km BULK COLLECT INTO vregistro LIMIT 100000; -- Busca registros do cursor km e armazena em vregistro
+    IF vregistro.COUNT > 0 THEN
+      FORALL idx IN vregistro.FIRST .. vregistro.LAST -- Loop para atualizar cada registro da vregistro
+        UPDATE carro a SET a.cod_revisao = CASE -- Atualiza a tabela carro de acordo com a condição CASE
+          WHEN a.kilometragem > 150000 THEN 1 -- Se a quilometragem for maior que 150.000 km, atualiza o cod_revisao para 1
+          WHEN a.kilometragem > 80000 AND a.kilometragem < 150000 THEN 2 -- Se a quilometragem for maior que 80.000 km e menor que 150.000 km, atualiza o cod_revisao para 2
+          WHEN a.kilometragem > 50000 AND a.kilometragem < 80000 THEN 3 -- Se a quilometragem for maior que 50.000 km e menor que 80.000 km, atualiza o cod_revisao para 3
+          ELSE 4 -- Caso contrário, atualiza o cod_revisao para 4
+          END
+          WHERE ROWID = vregistro(idx); -- Atualiza apenas o registro da ROWID selecionada
+    END IF;
+    EXIT WHEN km%NOTFOUND; -- Encerra o loop quando não houver mais registros no cursor km
+  END LOOP;
+  CLOSE km; -- Fecha o cursor km
+END;
+
+
+Esse procedimento armazenado atualiza a tabela carro de acordo com a quilometragem dos veículos e atualiza o campo cod_revisao para indicar quando o veículo precisa ser revisado novamente.
+O código busca os registros da tabela tipo_registro e atualiza os registros correspondentes na tabela carro.
+O resultado esperado é que o campo cod_revisao da tabela carro seja atualizado com os valores 1, 2, 3 ou 4, de acordo com a quilometragem dos veículos
